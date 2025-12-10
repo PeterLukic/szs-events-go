@@ -4,7 +4,7 @@
     "eventdate": "03-12-2025",
     "title": "Квиз из блока, Bar 28",
     "townname": "Грац",
-    "countryname": "Аустриа",
+    "countryname": "Аустрија",
     "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/EventGraz.jpg"
   },
   {
@@ -22,5 +22,54 @@
     "townname": "Источно Сарајево",
     "countryname": "Босна и Херцеговина",
     "link": null
+  },
+  {
+    "eventid": 4,
+    "eventdate": "04-12-2025",
+    "title": "Крофне из блока, Храм Светог Апостола Петра и Павла",
+    "townname": "Нови Град",
+    "countryname": "Босна и Херцеговина",
+    "link": null
+  },
+  {
+    "eventid": 5,
+    "eventdate": "06-12-2025",
+    "title": "Журка из блока, Caffe Prioritet",
+    "townname": "Вајнштат",
+    "countryname": "Немачка",
+    "link": null
+  },
+  {
+    "eventid": 6,
+    "eventdate": "04-12-2025",
+    "title": "Крофне из блока, Храм Светог Великомученика Георгија",
+    "townname": "Тукови",
+    "countryname": "Босна и Херцеговина",
+    "link": null
+  },
+  {
+    "eventid": 7,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Храм Рођена Пресвете Богородице",
+    "townname": "Вишеград",
+    "countryname": "Босна и Херцеговина",
+    "link": null
+  },
+  {
+    "eventid": 8,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Храм Светог цара Лазара и Косовских мученика",
+    "townname": "Вишеград",
+    "countryname": "Босна и Херцеговина",
+    "link": null
+  },
+  {
+    "eventid": 9,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Храм Покрова Пресвете Богородице",
+    "townname": "Градишка",
+    "countryname": "Босна и Херцеговина",
+    "link": null
   }
 ]
+
