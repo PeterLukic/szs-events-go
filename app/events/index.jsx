@@ -1,55 +1,119 @@
-import { useEffect, useState } from "react";
-import { ScrollView, StyleSheet, Text, View, Image, TouchableOpacity, Modal } from "react-native";
-import { getEventsWithDetails } from "../../database/db";
-import { eventImages } from "../../database/eventImages";
+import React, { useState, useEffect } from "react";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Modal,
+  Pressable
+} from "react-native";
+import { useRouter } from "expo-router";
+import { getEvents } from "../../database/db";
 
 export default function EventsScreen() {
+  const router = useRouter();
   const [events, setEvents] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    async function loadEvents() {
-      const data = await getEventsWithDetails();
-      setEvents(data);
-    }
-    loadEvents();
+    const data = getEvents();
+    setEvents(data);
   }, []);
 
+  const openImage = (link) => {
+    if (link) {
+      setSelectedImage(link);
+      setModalVisible(true);
+    }
+  };
+
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.header}>Events ({events.length})</Text>
+    <View style={styles.container}>
+      <ScrollView>
+        {events.map((event) => (
+          <View key={event.eventid} style={styles.eventCard}>
+            <Text style={styles.eventTitle}>{event.title}</Text>
+            <Text style={styles.eventInfo}>
+              {event.townname}, {event.countryname}
+            </Text>
+            {event.link && (
+              <TouchableOpacity
+                style={styles.imageButton}
+                onPress={() => openImage(event.link)}
+              >
+                <Text style={styles.imageButtonText}>Tap to view full image</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+        ))}
+      </ScrollView>
 
-      {events.map((ev) => (
-        <View key={ev.eventid} style={styles.card}>
-          <Text style={styles.title}>{ev.title}</Text>
-          <Text style={styles.subtitle}>Date: {ev.eventdate}</Text>
-          <Text style={styles.subtitle}>Location: {ev.townname}, {ev.countryname}</Text>
-
-          {ev.link ? (
-            <TouchableOpacity onPress={() => setSelectedImage(ev.link)}>
-              <Text style={{ color: "blue" }}>Tap to view full image</Text>
-            </TouchableOpacity>
-          ) : null}
-        </View>
-      ))}
-
-      <Modal visible={!!selectedImage} transparent={true}>
-        <View style={styles.modalContainer}>
-          <TouchableOpacity style={styles.modalBackground} onPress={() => setSelectedImage(null)} />
-          <Image source={eventImages[selectedImage]} style={styles.fullImage} resizeMode="contain" />
-        </View>
+      <Modal
+        visible={modalVisible}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <Pressable style={styles.modalContainer} onPress={() => setModalVisible(false)}>
+          <Image
+            source={{ uri: selectedImage }}
+            style={styles.fullImage}
+            resizeMode="contain"
+          />
+        </Pressable>
       </Modal>
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 10, backgroundColor: "#fff", flex: 1 },
-  header: { fontSize: 24, fontWeight: "bold", marginBottom: 20 },
-  card: { marginBottom: 15, padding: 10, borderWidth: 1, borderColor: "#ccc", borderRadius: 8, backgroundColor: "#fafafa" },
-  title: { fontSize: 18, fontWeight: "bold", marginBottom: 5 },
-  subtitle: { fontSize: 14, color: "#666", marginBottom: 5 },
-  modalContainer: { flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "rgba(0,0,0,0.7)" },
-  modalBackground: { ...StyleSheet.absoluteFillObject },
-  fullImage: { width: "90%", height: "70%", borderRadius: 10 }
+  container: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: "#f0f0f0",
+  },
+  eventCard: {
+    backgroundColor: "#fff",
+    padding: 15,
+    marginBottom: 10,
+    borderRadius: 8,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
+  },
+  eventTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  eventInfo: {
+    fontSize: 14,
+    color: "#555",
+    marginBottom: 10,
+  },
+  imageButton: {
+    backgroundColor: "#062b66",
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 5,
+    alignSelf: "flex-start",
+  },
+  imageButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
+  modalContainer: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.9)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  fullImage: {
+    width: "90%",
+    height: "70%",
+  },
 });

@@ -5,7 +5,7 @@
     "title": "Квиз из блока, Bar 28",
     "townname": "Грац",
     "countryname": "Аустриа",
-    "link": "EventGraz.jpg"
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/EventGraz.jpg"
   },
   {
     "eventid": 2,
@@ -13,6 +13,14 @@
     "title": "Кафанско вече из блока, Бањалучки сплав",
     "townname": "Бања Лука",
     "countryname": "Босна и Херцеговина",
-    "link": "EventBanjaLuka.jpg"
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/EventBanjaLuka.jpg"
+  },
+  {
+    "eventid": 3,
+    "eventdate": "04-12-2025",
+    "title": "Донаторско вече, Хотел Вучко - Јахорина",
+    "townname": "Источно Сарајево",
+    "countryname": "Босна и Херцеговина",
+    "link": null
   }
 ]
