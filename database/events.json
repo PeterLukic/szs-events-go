@@ -5,7 +5,7 @@
     "title": "Квиз из блока, Bar 28",
     "townname": "Грац",
     "countryname": "Аустрија",
-    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/EventGraz.jpg"
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic1.jpg"
   },
   {
     "eventid": 2,
@@ -13,7 +13,7 @@
     "title": "Кафанско вече из блока, Бањалучки сплав",
     "townname": "Бања Лука",
     "countryname": "Босна и Херцеговина",
-    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/EventBanjaLuka.jpg"
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic2.jpg"
   },
   {
     "eventid": 3,
@@ -21,7 +21,7 @@
     "title": "Донаторско вече, Хотел Вучко - Јахорина",
     "townname": "Источно Сарајево",
     "countryname": "Босна и Херцеговина",
-    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Event3.jpg"
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic3.jpg"
   },
   {
     "eventid": 4,
@@ -29,7 +29,7 @@
     "title": "Крофне из блока, Храм Светог Апостола Петра и Павла",
     "townname": "Нови Град",
     "countryname": "Босна и Херцеговина",
-    "link": null
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic4.jpg"
   },
   {
     "eventid": 5,
@@ -37,7 +37,7 @@
     "title": "Журка из блока, Caffe Prioritet",
     "townname": "Вајнштат",
     "countryname": "Немачка",
-    "link": null
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic5.jpg"
   },
   {
     "eventid": 6,
@@ -45,7 +45,7 @@
     "title": "Крофне из блока, Храм Светог Великомученика Георгија",
     "townname": "Тукови",
     "countryname": "Босна и Херцеговина",
-    "link": null
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic6.jpg"
   },
   {
     "eventid": 7,
@@ -53,7 +53,7 @@
     "title": "Крофне из блока, Храм Рођена Пресвете Богородице",
     "townname": "Вишеград",
     "countryname": "Босна и Херцеговина",
-    "link": null
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic7.jpg"
   },
   {
     "eventid": 8,
@@ -61,7 +61,7 @@
     "title": "Крофне из блока, Храм Светог цара Лазара и Косовских мученика",
     "townname": "Вишеград",
     "countryname": "Босна и Херцеговина",
-    "link": null
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic8.jpg"
   },
   {
     "eventid": 9,
@@ -69,7 +69,102 @@
     "title": "Крофне из блока, Храм Покрова Пресвете Богородице",
     "townname": "Градишка",
     "countryname": "Босна и Херцеговина",
-    "link": null
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic9.jpg"
+  },
+  {
+    "eventid": 10,
+    "eventdate": "07-12-2025",
+    "title": "Колачи из блока, Црква Светог Сисоја Великог насеље Гаврићи и друге",
+    "townname": "Добој",
+    "countryname": "Босна и Херцеговина",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic10.jpg"
+  },
+  {
+    "eventid": 11,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Храм Светог Стефана и Евгеније Лазаревић",
+    "townname": "Копривна",
+    "countryname": "Босна и Херцеговина",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic11.jpg"
+  },
+  {
+    "eventid": 12,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Црква Свете Петке",
+    "townname": "Козарска Дубица",
+    "countryname": "Босна и Херцеговина",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic12.jpg"
+  },
+  {
+    "eventid": 13,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Храм Светих Апостола Петра и Павла",
+    "townname": "Козарска Дубица",
+    "countryname": "Босна и Херцеговина",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic13.jpg"
+  },
+  {
+    "eventid": 14,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Храм Светог Димитрија",
+    "townname": "Ламовита",
+    "countryname": "Босна и Херцеговина",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic14.jpg"
+  },
+  {
+    "eventid": 15,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Саборна Црква Рођења Пресвете Богородице",
+    "townname": "Сарајево",
+    "countryname": "Босна и Херцеговина",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic15.jpg"
+  },
+  {
+    "eventid": 16,
+    "eventdate": "07-12-2025",
+    "title": "Колачи из блока, Храм Успења Пресвете Богородице",
+    "townname": "Панчево",
+    "countryname": "Србија",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic16.jpg"
+  },
+  {
+    "eventid": 17,
+    "eventdate": "07-12-2025",
+    "title": "Куглање из блока, Хала спортова 7. јули",
+    "townname": "Параћин",
+    "countryname": "Србија",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic17.jpg"
+  },
+  {
+    "eventid": 18,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Храм Светог Саве",
+    "townname": "Нова Топола",
+    "countryname": "Босна и Херцеговина",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic18.jpg"
+  },
+  {
+    "eventid": 19,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Манастир Клисина",
+    "townname": "Приједор",
+    "countryname": "Босна и Херцеговина",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic19.jpg"
+  },
+  {
+    "eventid": 20,
+    "eventdate": "07-12-2025",
+    "title": "Шетња из блока, Манастир Гргетег",
+    "townname": "Фрушка гора",
+    "countryname": "Србија",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic20.jpg"
+  },
+  {
+    "eventid": 21,
+    "eventdate": "07-12-2025",
+    "title": "Крофне из блока, Црква Вазнесења Господњег",
+    "townname": "Црквина",
+    "countryname": "Србија",
+    "link": "https://raw.githubusercontent.com/PeterLukic/szs-events-go/main/assets/images/events/Pic21.jpg"
   }
 ]
-
