@@ -1,0 +1,18 @@
+[
+  {
+    "eventid": 1,
+    "eventdate": "03-12-2025",
+    "title": "Квиз из блока, Bar 28",
+    "townname": "Грац",
+    "countryname": "Аустриа",
+    "link": "EventGraz.jpg"
+  },
+  {
+    "eventid": 2,
+    "eventdate": "04-12-2025",
+    "title": "Кафанско вече из блока, Бањалучки сплав",
+    "townname": "Бања Лука",
+    "countryname": "Босна и Херцеговина",
+    "link": "EventBanjaLuka.jpg"
+  }
+]
