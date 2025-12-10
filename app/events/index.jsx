@@ -7,7 +7,9 @@ import {
   Image,
   TouchableOpacity,
   Modal,
-  Pressable
+  Pressable,
+  BackHandler,
+  Dimensions
 } from "react-native";
 import { useRouter } from "expo-router";
 import { getEvents } from "../../database/db";
@@ -22,6 +24,24 @@ export default function EventsScreen() {
     const data = getEvents();
     setEvents(data);
   }, []);
+
+  // Handle Android back button
+  useEffect(() => {
+    const backAction = () => {
+      if (modalVisible) {
+        setModalVisible(false);
+        return true; // prevent default back action
+      }
+      return false;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, [modalVisible]);
 
   const openImage = (link) => {
     if (link) {
@@ -57,7 +77,10 @@ export default function EventsScreen() {
         animationType="fade"
         onRequestClose={() => setModalVisible(false)}
       >
-        <Pressable style={styles.modalContainer} onPress={() => setModalVisible(false)}>
+        <Pressable
+          style={styles.modalContainer}
+          onPress={() => setModalVisible(false)}
+        >
           <Image
             source={{ uri: selectedImage }}
             style={styles.fullImage}
@@ -68,6 +91,8 @@ export default function EventsScreen() {
     </View>
   );
 }
+
+const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -108,12 +133,12 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     flex: 1,
-    backgroundColor: "rgba(0,0,0,0.9)",
+    backgroundColor: "rgba(0,0,0,0.95)",
     justifyContent: "center",
     alignItems: "center",
   },
   fullImage: {
-    width: "90%",
-    height: "70%",
+    width: width,
+    height: height,
   },
 });
