@@ -1,5 +1,23 @@
 export const eventImages = {
-  "EventGraz.jpg": require("../assets/images/events/EventGraz.jpg"),
-  "EventBanjaLuka.jpg": require("../assets/images/events/EventBanjaLuka.jpg")
-  // Dodaj ostale slike ovde
+  "Pic1.jpg": require("../assets/images/events/Pic1.jpg"),
+  "Pic2.jpg": require("../assets/images/events/Pic2.jpg"),
+  "Pic3.jpg": require("../assets/images/events/Pic3.jpg"),
+  "Pic4.jpg": require("../assets/images/events/Pic4.jpg"),
+  "Pic5.jpg": require("../assets/images/events/Pic5.jpg"),
+  "Pic6.jpg": require("../assets/images/events/Pic6.jpg"),
+  "Pic7.jpg": require("../assets/images/events/Pic7.jpg"),
+  "Pic8.jpg": require("../assets/images/events/Pic8.jpg"),
+  "Pic9.jpg": require("../assets/images/events/Pic9.jpg"),
+  "Pic10.jpg": require("../assets/images/events/Pic10.jpg"),
+  "Pic11.jpg": require("../assets/images/events/Pic11.jpg"),
+  "Pic12.jpg": require("../assets/images/events/Pic12.jpg"),
+  "Pic13.jpg": require("../assets/images/events/Pic13.jpg"),
+  "Pic14.jpg": require("../assets/images/events/Pic14.jpg"),
+  "Pic15.jpg": require("../assets/images/events/Pic15.jpg"),
+  "Pic16.jpg": require("../assets/images/events/Pic16.jpg"),
+  "Pic17.jpg": require("../assets/images/events/Pic17.jpg"),
+  "Pic18.jpg": require("../assets/images/events/Pic18.jpg"),
+  "Pic19.jpg": require("../assets/images/events/Pic19.jpg"),
+  "Pic20.jpg": require("../assets/images/events/Pic20.jpg"),
+  "Pic21.jpg": require("../assets/images/events/Pic21.jpg")
 };
