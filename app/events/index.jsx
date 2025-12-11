@@ -20,6 +20,16 @@ export default function EventsScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
+  // Country → Flag colors (3 stripes)
+  const countryColors = {
+    "Аустрија": ["#ED2939", "#FFFFFF", "#ED2939"],
+    "Србија": ["#C6363C", "#0C4076", "#FFFFFF"],
+    "Босна и Херцеговина": ["#002395", "#F7C800", "#002395"],
+    "Република Српска": ["#C6363C", "#0C4076", "#FFFFFF"],
+    "Словенија": ["#FFFFFF", "#0C4076", "#C6363C"],
+    "Немачка": ["#000000", "#DD0000", "#FFCE00"]
+  };
+
   useEffect(() => {
     const data = getEvents();
     setEvents(data);
@@ -30,7 +40,7 @@ export default function EventsScreen() {
     const backAction = () => {
       if (modalVisible) {
         setModalVisible(false);
-        return true; // prevent default back action
+        return true;
       }
       return false;
     };
@@ -53,22 +63,36 @@ export default function EventsScreen() {
   return (
     <View style={styles.container}>
       <ScrollView>
-        {events.map((event) => (
-          <View key={event.eventid} style={styles.eventCard}>
-            <Text style={styles.eventTitle}>{event.title}</Text>
-            <Text style={styles.eventInfo}>
-              {event.townname}, {event.countryname}
-            </Text>
-            {event.link && (
-              <TouchableOpacity
-                style={styles.imageButton}
-                onPress={() => openImage(event.link)}
-              >
-                <Text style={styles.imageButtonText}>Прикажи билборд</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        ))}
+        {events.map((event) => {
+          const colors = countryColors[event.countryname] || ["#fff", "#eee", "#ddd"];
+
+          return (
+            <View key={event.eventid} style={[styles.eventCard, { padding: 0 }]}>
+              {/* FLAG BACKGROUND */}
+              <View style={{ backgroundColor: colors[0], height: 35 }} />
+              <View style={{ backgroundColor: colors[1], height: 35 }} />
+              <View style={{ backgroundColor: colors[2], height: 35 }} />
+
+              {/* CONTENT */}
+              <View style={{ padding: 15 }}>
+                <Text style={styles.eventTitle}>{event.title}</Text>
+
+                <Text style={styles.eventInfo}>
+                  {event.townname}, {event.countryname}
+                </Text>
+
+                {event.link && (
+                  <TouchableOpacity
+                    style={styles.imageButton}
+                    onPress={() => openImage(event.link)}
+                  >
+                    <Text style={styles.imageButtonText}>Прикажи билборд</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
+            </View>
+          );
+        })}
       </ScrollView>
 
       <Modal
@@ -101,14 +125,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#f0f0f0",
   },
   eventCard: {
-    backgroundColor: "#fff",
-    padding: 15,
-    marginBottom: 10,
-    borderRadius: 8,
+    backgroundColor: "#b6c98bff",
+    marginBottom: 12,
+    borderRadius: 10,
+    overflow: "hidden",
     shadowColor: "#000",
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.15,
     shadowRadius: 5,
-    elevation: 3,
+    elevation: 4,
   },
   eventTitle: {
     fontSize: 18,
@@ -117,14 +141,14 @@ const styles = StyleSheet.create({
   },
   eventInfo: {
     fontSize: 14,
-    color: "#555",
+    color: "#333",
     marginBottom: 10,
   },
   imageButton: {
     backgroundColor: "#062b66",
     paddingVertical: 8,
     paddingHorizontal: 12,
-    borderRadius: 5,
+    borderRadius: 6,
     alignSelf: "flex-start",
   },
   imageButtonText: {
