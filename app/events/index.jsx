@@ -86,7 +86,7 @@ export default function EventsScreen() {
                     style={styles.imageButton}
                     onPress={() => openImage(event.link)}
                   >
-                    <Text style={styles.imageButtonText}>Прикажи билборд</Text>
+                    <Text style={styles.imageButtonText}>Прикажи плакат</Text>
                   </TouchableOpacity>
                 )}
               </View>
