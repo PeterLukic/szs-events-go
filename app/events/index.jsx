@@ -64,7 +64,7 @@ export default function EventsScreen() {
                 style={styles.imageButton}
                 onPress={() => openImage(event.link)}
               >
-                <Text style={styles.imageButtonText}>Tap to view full image</Text>
+                <Text style={styles.imageButtonText}>Прикажи билборд</Text>
               </TouchableOpacity>
             )}
           </View>

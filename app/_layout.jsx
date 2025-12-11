@@ -10,8 +10,8 @@ export default function RootLayout() {
         headerTitleAlign: "center",
       }}
     >
-      <Stack.Screen name="index" options={{ title: "Home" }} />
-      <Stack.Screen name="events" options={{ headerTitle: "Events" }} />
+      <Stack.Screen name="index" options={{ title: "Почетна" }} />
+      <Stack.Screen name="events" options={{ headerTitle: "Догађаји" }} />
     </Stack>
   );
 }
