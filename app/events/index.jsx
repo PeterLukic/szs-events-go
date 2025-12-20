@@ -26,7 +26,7 @@ export default function EventsScreen() {
     setEvents(data);
   }, []);
 
-  // ⬅ Android back button (zatвара modal)
+  // ⬅ Android back button
   useEffect(() => {
     const backAction = () => {
       if (modalVisible) {
@@ -57,26 +57,13 @@ export default function EventsScreen() {
         {events.map((event) => (
           <View key={event.eventid} style={styles.eventCard}>
 
-            {/* 🏳️ TITLE + FLAG */}
-            <View style={styles.titleRow}>
-              {flagImages[event.countryname] && (
-                <Image
-                  source={flagImages[event.countryname]}
-                  style={styles.flagSmall}
-                  resizeMode="contain"
-                />
-              )}
-              <Text style={styles.eventTitle}>
-                {event.title}
-              </Text>
-            </View>
+            {/* 📄 CONTENT */}
+            <Text style={styles.eventTitle}>{event.title}</Text>
 
-            {/* 📍 LOCATION */}
             <Text style={styles.eventInfo}>
               {event.townname}, {event.countryname}
             </Text>
 
-            {/* 🖼 EVENT POSTER */}
             {event.link && (
               <TouchableOpacity
                 style={styles.imageButton}
@@ -86,6 +73,15 @@ export default function EventsScreen() {
                   Прикажи плакат
                 </Text>
               </TouchableOpacity>
+            )}
+
+            {/* 🇷🇸 FLAG – BOTTOM RIGHT */}
+            {flagImages[event.countryname] && (
+              <Image
+                source={flagImages[event.countryname]}
+                style={styles.flagBottomRight}
+                resizeMode="contain"
+              />
             )}
 
           </View>
@@ -128,35 +124,25 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     borderRadius: 12,
     padding: 15,
+    position: "relative", // 👈 OBAVEZNO
     shadowColor: "#000",
     shadowOpacity: 0.15,
     shadowRadius: 5,
     elevation: 4,
   },
 
-  titleRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 6,
-  },
-
-  flagSmall: {
-    width: 30,
-    height: 20,
-    marginRight: 8,
-    borderWidth: 0.5,
-    borderColor: "#ccc",
-  },
-
   eventTitle: {
     fontSize: 18,
     fontWeight: "bold",
+    marginBottom: 5,
+    paddingRight: 40, // 👈 da tekst ne uđe pod zastavu
   },
 
   eventInfo: {
     fontSize: 14,
     color: "#333",
     marginBottom: 10,
+    paddingRight: 40,
   },
 
   imageButton: {
@@ -170,6 +156,16 @@ const styles = StyleSheet.create({
   imageButtonText: {
     color: "#fff",
     fontWeight: "bold",
+  },
+
+  flagBottomRight: {
+    width: 40,
+    height: 26,
+    position: "absolute",
+    right: 10,
+    bottom: 10,
+    borderWidth: 0.5,
+    borderColor: "#ccc",
   },
 
   modalContainer: {
