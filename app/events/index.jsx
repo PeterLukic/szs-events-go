@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { getEvents } from "../../database/db";
+import { flagImages } from "../../database/flagImages";
 
 export default function EventsScreen() {
   const router = useRouter();
@@ -20,22 +21,12 @@ export default function EventsScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // 🌍 Country → Flag IMAGE (URL)
-  const countryFlags = {
-    "Аустрија": { uri: "https://flagcdn.com/w40/at.png" },
-    "Србија": { uri: "https://flagcdn.com/w40/rs.png" },
-    "Босна и Херцеговина": { uri: "https://flagcdn.com/w40/ba.png" },
-    "Република Српска": { uri: "https://upload.wikimedia.org/wikipedia/commons/9/97/Flag_of_Republika_Srpska.png" },
-    "Словенија": { uri: "https://flagcdn.com/w40/si.png" },
-    "Немачка": { uri: "https://flagcdn.com/w40/de.png" }
-  };
-
   useEffect(() => {
     const data = getEvents();
     setEvents(data);
   }, []);
 
-  // ⬅ Android back button (zatvara modal)
+  // ⬅ Android back button (zatвара modal)
   useEffect(() => {
     const backAction = () => {
       if (modalVisible) {
@@ -66,29 +57,34 @@ export default function EventsScreen() {
         {events.map((event) => (
           <View key={event.eventid} style={styles.eventCard}>
 
-            {/* 🔹 TITLE ROW sa malom zastavom */}
+            {/* 🏳️ TITLE + FLAG */}
             <View style={styles.titleRow}>
-              {countryFlags[event.countryname] && (
+              {flagImages[event.countryname] && (
                 <Image
-                  source={countryFlags[event.countryname]}
+                  source={flagImages[event.countryname]}
                   style={styles.flagSmall}
                   resizeMode="contain"
                 />
               )}
-              <Text style={styles.eventTitle}>{event.title}</Text>
+              <Text style={styles.eventTitle}>
+                {event.title}
+              </Text>
             </View>
 
-            {/* 📄 INFO */}
+            {/* 📍 LOCATION */}
             <Text style={styles.eventInfo}>
               {event.townname}, {event.countryname}
             </Text>
 
+            {/* 🖼 EVENT POSTER */}
             {event.link && (
               <TouchableOpacity
                 style={styles.imageButton}
                 onPress={() => openImage(event.link)}
               >
-                <Text style={styles.imageButtonText}>Прикажи плакат</Text>
+                <Text style={styles.imageButtonText}>
+                  Прикажи плакат
+                </Text>
               </TouchableOpacity>
             )}
 
@@ -96,7 +92,7 @@ export default function EventsScreen() {
         ))}
       </ScrollView>
 
-      {/* 🖼 IMAGE MODAL */}
+      {/* 🖼 MODAL */}
       <Modal
         visible={modalVisible}
         transparent
@@ -141,7 +137,7 @@ const styles = StyleSheet.create({
   titleRow: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 5,
+    marginBottom: 6,
   },
 
   flagSmall: {
