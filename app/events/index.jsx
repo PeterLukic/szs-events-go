@@ -18,15 +18,15 @@ import { flagImages } from "../../database/flagImages";
 export default function EventsScreen() {
   const router = useRouter();
   const [events, setEvents] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    const data = getEvents();
-    setEvents(data);
+    setEvents(getEvents());
   }, []);
 
-  // ⬅ Android back button
+  // ⬅ Android back button (zatvara modal)
   useEffect(() => {
     const backAction = () => {
       if (modalVisible) {
@@ -51,13 +51,65 @@ export default function EventsScreen() {
     }
   };
 
+  // 🌍 lista drzava
+  const countries = [...new Set(events.map(e => e.countryname))];
+
+  // 🔍 filtrirani eventi
+  const filteredEvents = selectedCountry
+    ? events.filter(e => e.countryname === selectedCountry)
+    : events;
+
   return (
     <View style={styles.container}>
+
+      {/* 🔎 FILTER BAR */}
+      <View style={styles.filterBar}>
+        <TouchableOpacity
+          style={[
+            styles.filterButton,
+            !selectedCountry && styles.filterButtonActive
+          ]}
+          onPress={() => setSelectedCountry(null)}
+        >
+          <Text style={[
+            styles.filterText,
+            !selectedCountry && styles.filterTextActive
+          ]}>
+            СВA ДЕШАВАЊА 
+          </Text>
+        </TouchableOpacity>
+
+        {countries.map(country => (
+          <TouchableOpacity
+            key={country}
+            style={[
+              styles.filterButton,
+              selectedCountry === country && styles.filterButtonActive
+            ]}
+            onPress={() => setSelectedCountry(country)}
+          >
+            {flagImages[country] && (
+              <Image
+                source={flagImages[country]}
+                style={styles.filterFlag}
+                resizeMode="contain"
+              />
+            )}
+            <Text style={[
+              styles.filterText,
+              selectedCountry === country && styles.filterTextActive
+            ]}>
+              {country}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
+      {/* 📄 EVENTS */}
       <ScrollView>
-        {events.map((event) => (
+        {filteredEvents.map(event => (
           <View key={event.eventid} style={styles.eventCard}>
 
-            {/* 📄 CONTENT */}
             <Text style={styles.eventTitle}>{event.title}</Text>
 
             <Text style={styles.eventInfo}>
@@ -75,7 +127,7 @@ export default function EventsScreen() {
               </TouchableOpacity>
             )}
 
-            {/* 🇷🇸 FLAG – BOTTOM RIGHT */}
+            {/* 🇷🇸 ZASTAVA DOLE DESNO */}
             {flagImages[event.countryname] && (
               <Image
                 source={flagImages[event.countryname]}
@@ -119,12 +171,51 @@ const styles = StyleSheet.create({
     backgroundColor: "#f0f0f0",
   },
 
+  /* FILTER */
+  filterBar: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginBottom: 10,
+  },
+
+  filterButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#e0e0e0",
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 20,
+    marginRight: 8,
+    marginBottom: 8,
+  },
+
+  filterButtonActive: {
+    backgroundColor: "#062b66",
+  },
+
+  filterText: {
+    fontSize: 13,
+    color: "#000",
+    marginLeft: 4,
+  },
+
+  filterTextActive: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
+
+  filterFlag: {
+    width: 20,
+    height: 14,
+  },
+
+  /* EVENT CARD */
   eventCard: {
     backgroundColor: "#b6c98bff",
     marginBottom: 14,
     borderRadius: 12,
     padding: 15,
-    position: "relative", // 👈 OBAVEZNO
+    position: "relative",
     shadowColor: "#000",
     shadowOpacity: 0.15,
     shadowRadius: 5,
@@ -135,14 +226,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 5,
-    paddingRight: 40, // 👈 da tekst ne uđe pod zastavu
+    paddingRight: 50,
   },
 
   eventInfo: {
     fontSize: 14,
     color: "#333",
     marginBottom: 10,
-    paddingRight: 40,
+    paddingRight: 50,
   },
 
   imageButton: {
@@ -162,12 +253,15 @@ const styles = StyleSheet.create({
     width: 40,
     height: 26,
     position: "absolute",
-    right: 10,
-    bottom: 10,
-    borderWidth: 0.5,
-    borderColor: "#ccc",
+    right: 12,
+    bottom: 12,
+    borderWidth: 0.7,
+    borderColor: "#bbb",
+    borderRadius: 2,
+    opacity: 0.9,
   },
 
+  /* MODAL */
   modalContainer: {
     flex: 1,
     backgroundColor: "rgba(0,0,0,0.95)",
