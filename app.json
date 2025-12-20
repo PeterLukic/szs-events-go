@@ -2,7 +2,7 @@
   "expo": {
     "name": "szs-events-go",
     "slug": "szs-events-go",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/logo_szs.png",
     "scheme": "szseventsgo",
@@ -17,7 +17,8 @@
         "backgroundColor": "#E6F4FE"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.peter.lukic.szseventsgo"
     },
     "web": {
       "output": "static",
@@ -41,6 +42,18 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "c05b45bf-d918-4c35-a42c-d941d60191e6"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c05b45bf-d918-4c35-a42c-d941d60191e6"
     }
   }
 }
