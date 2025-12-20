@@ -6,13 +6,22 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "node": "22.12.0",
+      "npm": "10.1.0",
+      "installCommand": "npm install"
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "node": "22.12.0",
+      "npm": "10.1.0",
+      "installCommand": "npm install"
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "node": "22.12.0",
+      "npm": "10.1.0",
+      "installCommand": "npm install"
     }
   },
   "submit": {
