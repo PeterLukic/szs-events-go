@@ -4,20 +4,17 @@
     "slug": "szs-events-go",
     "version": "1.1.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon_szs.png",  
+    "icon": "./assets/images/icon_szs.png",
     "scheme": "szseventsgo",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.peter.lukic.szseventsgo",
-      "icon": "./assets/images/icon_szs.png"  
+      "icon": "./assets/images/icon_szs.png"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon_szs.png",  
-        "backgroundColor": "#E6F4FE"
-      },
+      "icon": "./assets/images/icon_szs.png",
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.peter.lukic.szseventsgo"
@@ -32,7 +29,7 @@
         "expo-splash-screen",
         {
           "image": "./assets/images/icon_szs.png",
-          "imageWidth": 400, 
+          "imageWidth": 400,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
