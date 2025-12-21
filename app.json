@@ -29,7 +29,7 @@
         "expo-splash-screen",
         {
           "image": "./assets/images/logo_szs.png",
-          "imageWidth": 400,
+          "imageWidth": 500,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
