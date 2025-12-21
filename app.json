@@ -14,7 +14,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo_szs_foreground.png",
+        "foregroundImage": "./assets/images/logo_szs.png",
         "backgroundColor": "#E6F4FE"
       },
       "edgeToEdgeEnabled": true,
