@@ -15,7 +15,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon_szs_foreground.png",  
+        "foregroundImage": "#E6F4FE",  
         "backgroundColor": "#E6F4FE"
       },
       "edgeToEdgeEnabled": true,
@@ -31,7 +31,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/icon_szs_foreground.png",
+          "image": "./assets/images/icon_szs.png",
           "imageWidth": 400, 
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
