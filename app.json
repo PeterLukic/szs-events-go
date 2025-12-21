@@ -9,11 +9,12 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.peter.lukic.szseventsgo"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo_szs.png",
+        "foregroundImage": "./assets/images/logo_szs_foreground.png",
         "backgroundColor": "#E6F4FE"
       },
       "edgeToEdgeEnabled": true,
