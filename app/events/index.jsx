@@ -12,11 +12,14 @@ import {
   Dimensions,
 } from "react-native";
 import { useRouter } from "expo-router";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { getEvents } from "../../database/db";
 import { flagImages } from "../../database/flagImages";
 
 export default function EventsScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
+
   const [events, setEvents] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
@@ -75,7 +78,7 @@ export default function EventsScreen() {
             styles.filterText,
             !selectedCountry && styles.filterTextActive
           ]}>
-            СВA ДЕШАВАЊА 
+            СВA ДЕШАВАЊА
           </Text>
         </TouchableOpacity>
 
@@ -106,7 +109,12 @@ export default function EventsScreen() {
       </View>
 
       {/* 📄 EVENTS */}
-      <ScrollView>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: insets.bottom + 20, // ✅ FIX FOR ANDROID NAV BAR
+        }}
+      >
         {filteredEvents.map(event => (
           <View key={event.eventid} style={styles.eventCard}>
 
